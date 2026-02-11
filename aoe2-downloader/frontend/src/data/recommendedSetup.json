@@ -1,0 +1,124 @@
+{
+  "hooks": [
+    {
+      "name": "SessionStart",
+      "description": "Played when a Claude Code session starts",
+      "recommendations": [
+        {
+          "text": "Start the game",
+          "audioUrl": "https://static.wikia.nocookie.net/ageofempires/images/0/04/Start_the_game.ogg/revision/latest?cb=20170605130600",
+          "unit": "Taunt",
+          "category": "Taunt"
+        },
+        {
+          "text": "All hail",
+          "audioUrl": "https://static.wikia.nocookie.net/ageofempires/images/d/d6/All_hail.ogg/revision/latest?cb=20170605130305",
+          "unit": "Taunt",
+          "category": "Taunt"
+        },
+        {
+          "text": "Britons Villager Male Select 1",
+          "audioUrl": "https://static.wikia.nocookie.net/ageofempires/images/a/a5/Britons_Villager_Male_Select_1_AoE2.ogg/revision/latest?cb=20210117220045",
+          "unit": "Villager Male",
+          "category": "Select"
+        },
+        {
+          "text": "Create extra villagers",
+          "audioUrl": "https://static.wikia.nocookie.net/ageofempires/images/6/6e/Create_extra_villagers.ogg/revision/latest?cb=20170605130310",
+          "unit": "Taunt",
+          "category": "Taunt"
+        }
+      ]
+    },
+    {
+      "name": "UserPromptSubmit",
+      "description": "Played when you submit a prompt",
+      "recommendations": [
+        {
+          "text": "Britons Soldier Move 1",
+          "audioUrl": "https://static.wikia.nocookie.net/ageofempires/images/7/7a/Britons_Soldier_Move_1_AoE2.ogg/revision/latest?cb=20210117215908",
+          "unit": "Soldier",
+          "category": "Move"
+        },
+        {
+          "text": "Britons Villager Male Task 1",
+          "audioUrl": "https://static.wikia.nocookie.net/ageofempires/images/c/cf/Britons_Villager_Male_Task_1_AoE2.ogg/revision/latest?cb=20210117220102",
+          "unit": "Villager Male",
+          "category": "Task"
+        },
+        {
+          "text": "Yes",
+          "audioUrl": "https://static.wikia.nocookie.net/ageofempires/images/e/e1/Yes.ogg/revision/latest?cb=20170605130608",
+          "unit": "Taunt",
+          "category": "Taunt"
+        },
+        {
+          "text": "Britons Villager Female Task 1",
+          "audioUrl": "https://static.wikia.nocookie.net/ageofempires/images/8/80/Britons_Villager_Female_Task_1_AoE2.ogg/revision/latest?cb=20210117220009",
+          "unit": "Villager Female",
+          "category": "Task"
+        }
+      ]
+    },
+    {
+      "name": "Stop",
+      "description": "Played when Claude finishes a response",
+      "recommendations": [
+        {
+          "text": "It is good",
+          "audioUrl": "https://static.wikia.nocookie.net/ageofempires/images/3/33/It_is_good.ogg/revision/latest?cb=20170605130346",
+          "unit": "Taunt",
+          "category": "Taunt"
+        },
+        {
+          "text": "Britons Villager Male Build",
+          "audioUrl": "https://static.wikia.nocookie.net/ageofempires/images/e/e6/Britons_Villager_Male_Build_AoE2.ogg/revision/latest?cb=20210117220022",
+          "unit": "Villager Male",
+          "category": "Build"
+        },
+        {
+          "text": "Build a wonder",
+          "audioUrl": "https://static.wikia.nocookie.net/ageofempires/images/2/27/Build_a_wonder.ogg/revision/latest?cb=20170605130307",
+          "unit": "Taunt",
+          "category": "Taunt"
+        },
+        {
+          "text": "Britons King Select 1",
+          "audioUrl": "https://static.wikia.nocookie.net/ageofempires/images/c/c7/Britons_King_Select_1_AoE2.ogg/revision/latest?cb=20210117215820",
+          "unit": "King",
+          "category": "Select"
+        }
+      ]
+    },
+    {
+      "name": "PreCompact",
+      "description": "Played before context compaction",
+      "recommendations": [
+        {
+          "text": "Wololo",
+          "audioUrl": "https://static.wikia.nocookie.net/ageofempires/images/a/a1/Wololo.ogg/revision/latest?cb=20170605130607",
+          "unit": "Taunt",
+          "category": "Taunt"
+        },
+        {
+          "text": "Britons Monk Select 1",
+          "audioUrl": "https://static.wikia.nocookie.net/ageofempires/images/e/e7/Britons_Monk_Select_1_AoE2.ogg/revision/latest?cb=20210117215844",
+          "unit": "Monk",
+          "category": "Select"
+        },
+        {
+          "text": "Britons Monk Move 1",
+          "audioUrl": "https://static.wikia.nocookie.net/ageofempires/images/5/5b/Britons_Monk_Move_1_AoE2.ogg/revision/latest?cb=20210117215833",
+          "unit": "Monk",
+          "category": "Move"
+        },
+        {
+          "text": "Long time no siege",
+          "audioUrl": "https://static.wikia.nocookie.net/ageofempires/images/9/94/Long_time_no_siege.ogg/revision/latest?cb=20170605130353",
+          "unit": "Taunt",
+          "category": "Taunt"
+        }
+      ]
+    }
+  ]
+}
