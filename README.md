@@ -1,50 +1,89 @@
-# AoE2 Sounds for Claude Code
+# Wololo
 
-Get "Wololo" and 2,700 other Age of Empires II voice lines playing in your terminal while you use [Claude Code](https://docs.anthropic.com/en/docs/claude-code).
+AoE2 sound effects for your coding tools. Hear villager acknowledgments, monk chants, and taunts while you code — in [Claude Code](https://docs.anthropic.com/en/docs/claude-code) and [GitHub Copilot](https://github.com/features/copilot).
 
-Every time Claude finishes a task, starts a session, or compacts context, you hear a random AoE2 sound. Monks chanting during compaction. Villagers acknowledging your prompts. Taunts when a session starts. That sort of thing.
+Claude finishes a task? "It is good." Context compaction? Wololo. You submit a prompt? A villager grunts and gets to work.
 
-Based on [starcraft-claude](https://github.com/duartemartins/starcraft-claude).
+2,700+ voice lines from 46 civilizations. 42 classic taunts. All scraped from the [AoE2 Wiki](https://ageofempires.fandom.com/).
 
-## What you get
+Originally forked from [starcraft-claude](https://github.com/rubenflamshepherd/starcraft-claude).
 
-2,700+ unit dialogue lines scraped from the AoE2 wiki, covering 46 civilizations and 42 taunts. A web UI to browse, preview, and pick which sounds go where. A watcher script that actually plays them in your terminal.
+## How it works
 
-You can also download everything as a ZIP, or save individual sounds to `~/.claude/sounds/` and wire them up manually.
+There are two ways to use this:
 
-## Setup
+**Claude Code** — A zsh script watches for Claude's hook trigger files and plays a random sound via `afplay`. A web UI lets you pick which sounds go on which hook.
+
+**GitHub Copilot** — A VS Code extension plays the same sounds on editor events (file save, terminal commands, chat messages). It also adds an `@aoe2` participant to Copilot Chat for browsing the sound library.
+
+Both share the same sound files in `~/.claude/sounds/`.
+
+## Setup (Claude Code)
 
 You need Node 18+, ffmpeg, and fswatch:
 
 ```bash
-# macOS
 brew install ffmpeg fswatch
 ```
 
-Then:
-
 ```bash
-cd aoe2-downloader
 npm run install:all
 npm run dev
 ```
 
-Frontend runs at http://localhost:5173, backend at http://localhost:3001.
+Frontend at http://localhost:5173, backend at http://localhost:3001.
 
-Open the frontend and hit "One-Click Setup". This writes the Claude Code hooks to `~/.claude/settings.json`, downloads a default set of sounds, and installs the fswatch listener. Restart your terminal after.
+Hit "One-Click Setup" in the UI. This writes hooks to `~/.claude/settings.json`, downloads sounds, and installs the fswatch listener. Restart your terminal after.
 
-## How it works
-
-A scraper (`scripts/scrape-wiki.js`) pulls file listings from the [AoE2 Wiki](https://ageofempires.fandom.com/) using the MediaWiki API. The frontend is React + Vite + Tailwind. The Express backend proxies audio to avoid CORS issues and converts OGG to MP3 via ffmpeg. A zsh script (`claude-sounds.zsh`) watches for hook trigger files and plays a random sound from the right folder.
-
-## Re-scraping
+## Setup (VS Code / Copilot)
 
 ```bash
-cd aoe2-downloader
+cd vscode-extension
+npm install
+npm run compile
+npx @vscode/vsce package
+code --install-extension aoe2-sounds-0.1.0.vsix
+```
+
+Reload VS Code. The extension will ask to download sounds on first run, or you can run "AoE2 Sounds: Download Sounds" from the command palette.
+
+If you already set up Claude Code sounds, the extension uses those same files automatically.
+
+### What fires when
+
+| Event | Sound folder | Example |
+|-------|-------------|---------|
+| Extension activates | `start/` | "Start the game" |
+| File save | `done/` | "It is good" |
+| Terminal command | `userpromptsubmit/` | Villager task acknowledgment |
+| `@aoe2` chat message | `userpromptsubmit/` + `done/` | Plays on send and on response |
+| Wololo command (`Cmd+Shift+P`) | `precompact/` | Monk chants |
+
+Volume and individual triggers are configurable in VS Code settings under "AoE2 Sounds".
+
+### Chat commands
+
+Type `@aoe2` in Copilot Chat:
+
+| Command | What it does |
+|---------|-------------|
+| `/search wololo` | Search voice lines by keyword |
+| `/random` | Random line from 2,700+ |
+| `/taunt` | Random taunt |
+| `/civs` | List all civilizations |
+| `/units britons` | List units for a civ |
+
+## Under the hood
+
+A scraper (`scripts/scrape-wiki.js`) pulls file listings from the AoE2 Wiki via the MediaWiki API. The frontend is React + Vite + Tailwind. The Express backend proxies audio (CORS) and converts OGG to MP3 with ffmpeg. The zsh watcher (`claude-sounds.zsh`) uses fswatch to detect hook trigger files and plays a random `.mp3` from the matching folder.
+
+To re-scrape:
+
+```bash
 npm run scrape
 ```
 
-Writes to `frontend/src/data/quotations.json`.
+Writes to `aoe2-downloader/frontend/src/data/quotations.json`.
 
 ## Credits
 

@@ -1,0 +1,12 @@
+{
+  "name": "wololo",
+  "private": true,
+  "scripts": {
+    "install:all": "cd aoe2-downloader && npm run install:all && cd ../vscode-extension && npm install",
+    "dev": "cd aoe2-downloader && npm run dev",
+    "build": "cd aoe2-downloader && npm run build",
+    "build:ext": "cd vscode-extension && npm run compile",
+    "package:ext": "cd vscode-extension && npx @vscode/vsce package",
+    "scrape": "cd aoe2-downloader && npm run scrape"
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "name": "aoe2-sounds",
+  "displayName": "AoE2 Sounds for Copilot",
+  "description": "Browse and play Age of Empires II unit dialogue sounds from GitHub Copilot Chat",
+  "version": "0.1.0",
+  "publisher": "duartemartins",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Duartemartins/wololo"
+  },
+  "engines": {
+    "vscode": "^1.93.0"
+  },
+  "categories": [
+    "Chat"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "extensionDependencies": [
+    "github.copilot-chat"
+  ],
+  "contributes": {
+    "chatParticipants": [
+      {
+        "id": "aoe2-sounds.aoe2",
+        "fullName": "AoE2 Sounds",
+        "name": "aoe2",
+        "description": "Browse and play Age of Empires II unit voice lines",
+        "isSticky": true,
+        "commands": [
+          {
+            "name": "search",
+            "description": "Search for a unit voice line by name or keyword"
+          },
+          {
+            "name": "random",
+            "description": "Get a random AoE2 voice line"
+          },
+          {
+            "name": "units",
+            "description": "List available units for a civilization"
+          },
+          {
+            "name": "civs",
+            "description": "List all civilizations"
+          },
+          {
+            "name": "taunt",
+            "description": "Get a classic AoE2 taunt"
+          }
+        ]
+      }
+    ],
+    "commands": [
+      {
+        "command": "aoe2-sounds.openBrowser",
+        "title": "AoE2 Sounds: Open Sound Browser"
+      },
+      {
+        "command": "aoe2-sounds.toggle",
+        "title": "AoE2 Sounds: Toggle Sound Effects"
+      },
+      {
+        "command": "aoe2-sounds.downloadSounds",
+        "title": "AoE2 Sounds: Download Sounds"
+      },
+      {
+        "command": "aoe2-sounds.wololo",
+        "title": "AoE2 Sounds: Wololo! 🔔"
+      }
+    ],
+    "configuration": {
+      "title": "AoE2 Sounds",
+      "properties": {
+        "aoe2Sounds.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable AoE2 sound effects on coding events"
+        },
+        "aoe2Sounds.volume": {
+          "type": "number",
+          "default": 0.3,
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Sound volume (0-1, macOS only)"
+        },
+        "aoe2Sounds.playOnSave": {
+          "type": "boolean",
+          "default": true,
+          "description": "Play a sound when saving a file"
+        },
+        "aoe2Sounds.playOnTerminalCommand": {
+          "type": "boolean",
+          "default": true,
+          "description": "Play a sound when a terminal command starts"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/vscode": "^1.93.0",
+    "typescript": "^5.3.3",
+    "@vscode/vsce": "^3.0.0"
+  }
+}
